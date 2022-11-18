@@ -5,29 +5,25 @@ import java.util.*;
 public class BerlinClockKata {
 
     public static void main(String[] args) {
-        /*Scanner s = new Scanner(System.in);
+        Scanner s = new Scanner(System.in);
         System.out.print("introduce una fecha: ");
-        String readData = s.nextLine();*/
-
-        String[] fecha = {"00:00:00", "23:59:59", "16:50:06", "11:37:01"};
-
-        for (int i = 0; i < 4; i++) {
-            String[] splitted;
-            //splitted = radData.trim().split(":");
-            splitted = fecha[i].trim().split(":");
-
-            int hours = Integer.parseInt(splitted[0]);
-            int minutes = Integer.parseInt(splitted[1]);
-            int seconds = Integer.parseInt(splitted[2]);
-
-            MostrarSegundos(seconds);
-            Mostrar5Hour(hours);
-            Mostrar1Hour(hours);
-            Mostrar5Minutes(minutes);
-            Mostrar1Minutes(minutes);
+        String readData = s.nextLine();
 
 
-        }
+        String[] splitted;
+        splitted = readData.trim().split(":");
+
+        int hours = Integer.parseInt(splitted[0]);
+        int minutes = Integer.parseInt(splitted[1]);
+        int seconds = Integer.parseInt(splitted[2]);
+
+        MostrarSegundos(seconds);
+        Mostrar5Hour(hours);
+        Mostrar1Hour(hours);
+        Mostrar5Minutes(minutes);
+        Mostrar1Minutes(minutes);
+
+
     }
 
     public static void Mostrar1Minutes(int minutes) {
