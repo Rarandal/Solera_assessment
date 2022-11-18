@@ -9,47 +9,57 @@ public class BerlinClockKata {
         System.out.print("introduce una fecha: ");
         String readData = s.nextLine();*/
 
-        String[] fecha = {"00:00:00", "23:59:59", "12:04:00", "12:23:00", "12:35:00"};
+        String[] fecha = {"00:00:00", "23:59:59", "16:50:06", "11:37:01"};
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             String[] splitted;
             //splitted = radData.trim().split(":");
             splitted = fecha[i].trim().split(":");
 
-            //int hours = Integer.parseInt(splitted[0]);
+            int hours = Integer.parseInt(splitted[0]);
             int minutes = Integer.parseInt(splitted[1]);
-            //int seconds = Integer.parseInt(splitted[2]);
+            int seconds = Integer.parseInt(splitted[2]);
 
-            int moduloMinute = minutes % 5;
-            //Mostrar1Minutes(moduloMinute);
+            MostrarSegundos(seconds);
+            Mostrar5Hour(hours);
+            Mostrar1Hour(hours);
+            Mostrar5Minutes(minutes);
+            Mostrar1Minutes(minutes);
 
-            int moduloMinutes = minutes / 5;
-            //Mostrar5Minutes(moduloMinutes);
 
         }
     }
 
-    public static void Mostrar1Minutes(int encendidos) {
+    public static void Mostrar1Minutes(int minutes) {
+        int encendidos = minutes % 5;
+
         switch (encendidos) {
             case 0:
-                mostrar("0000");
+                mostrar("OOOO");
+                saltarLinea();
                 return;
             case 1:
-                mostrar("Y000");
+                mostrar("YOOO");
+                saltarLinea();
                 return;
             case 2:
-                mostrar("YY00");
+                mostrar("YYOO");
+                saltarLinea();
                 return;
             case 3:
-                mostrar("YYY0");
+                mostrar("YYYO");
+                saltarLinea();
                 return;
             case 4:
                 mostrar("YYYY");
+                saltarLinea();
                 return;
         }
     }
 
-    public static void Mostrar5Minutes(int encendidos) {
+    public static void Mostrar5Minutes(int minutes) {
+        int encendidos = minutes / 5;
+
         String casa = "OOOOOOOOOOO";
         String perro = "YYRYYRYYRYY";
         String result = perro.substring(0, encendidos) + casa.substring(encendidos, casa.length());
@@ -57,8 +67,70 @@ public class BerlinClockKata {
         mostrar(result);
     }
 
+    public static void Mostrar1Hour(int hours) {
+        int encendidos = hours % 5;
+
+        switch (encendidos) {
+            case 0:
+                mostrar("OOOO");
+                return;
+            case 1:
+                mostrar("ROOO");
+                return;
+            case 2:
+                mostrar("RROO");
+                return;
+            case 3:
+                mostrar("RRRO");
+                return;
+            case 4:
+                mostrar("RRRR");
+                return;
+        }
+    }
+
+    public static void Mostrar5Hour(int hours) {
+        int encendidos = hours / 5;
+
+        switch (encendidos) {
+            case 0:
+                mostrar("OOOO");
+                return;
+            case 1:
+                mostrar("ROOO");
+                return;
+            case 2:
+                mostrar("RROO");
+                return;
+            case 3:
+                mostrar("RRRO");
+                return;
+            case 4:
+                mostrar("RRRR");
+                return;
+        }
+    }
+
+    public static void MostrarSegundos(int seconds) {
+        int resultado = seconds % 2;
+
+        switch (resultado) {
+            case 0:
+                mostrar("Y");
+                return;
+            case 1:
+                mostrar("O");
+                return;
+        }
+    }
+
     public static void mostrar(String casa) {
 
-        System.out.println(casa);
+        System.out.print(casa);
+    }
+
+    public static void saltarLinea() {
+
+        System.out.println();
     }
 }
